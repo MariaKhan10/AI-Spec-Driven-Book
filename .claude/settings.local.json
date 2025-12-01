@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp add:*)",
+      "mcp__context7__get-library-docs",
+      "WebSearch"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
