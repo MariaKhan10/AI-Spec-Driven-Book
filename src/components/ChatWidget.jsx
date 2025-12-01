@@ -4,12 +4,15 @@ export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   // Scroll to bottom on new message
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  // Replace with your Railway backend URL
+  const BACKEND_URL = "https://backend-spec-driven-book-production.up.railway.app/";
 
   const sendMessage = async () => {
     if (!input) return;
@@ -18,17 +21,14 @@ export default function ChatWidget() {
     setInput("");
 
     try {
-      const res = await fetch(
-        `http://127.0.0.1:8000/chat`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: input }),
-        }
-      );
+      const res = await fetch(`${BACKEND_URL}/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: input }),
+      });
+
       const data = await res.json();
       setMessages((prev) => [...prev, { role: "bot", content: data.reply }]);
-      
     } catch (err) {
       setMessages((prev) => [
         ...prev,
@@ -36,7 +36,6 @@ export default function ChatWidget() {
       ]);
     }
   };
-  
 
   return (
     <div style={{ position: "fixed", bottom: 30, right: 30, zIndex: 9999 }}>
