@@ -15,6 +15,7 @@ const config: Config = {
   baseUrl: '/AI-Spec-Driven-Book/',
   organizationName: 'MariaKhan10',
   projectName: 'AI-Spec-Driven-Book',
+  deploymentBranch: 'gh-pages', 
   onBrokenLinks: 'throw', // keep as is for site links
 
   markdown: {
