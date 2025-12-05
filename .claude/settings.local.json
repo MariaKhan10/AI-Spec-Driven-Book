@@ -3,7 +3,8 @@
     "allow": [
       "Bash(claude mcp add:*)",
       "mcp__context7__get-library-docs",
-      "WebSearch"
+      "WebSearch",
+      "mcp__ide__getDiagnostics"
     ],
     "deny": [],
     "ask": []
