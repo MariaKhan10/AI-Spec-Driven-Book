@@ -11,7 +11,7 @@ export default function ChatWidget() {
   const messagesEndRef = useRef(null);
   const widgetRef = useRef(null);
 
-  const BACKEND_URL = "https://backend-production-7d39.up.railway.app";
+  const BACKEND_URL = "https://backend-production-7d39.up.railway.app/chat";
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
