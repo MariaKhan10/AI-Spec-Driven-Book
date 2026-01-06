@@ -4,6 +4,9 @@
  * work well for content-centric websites.
  */
 
+/* Import authentication styles */
+@import url('./auth.css');
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #8E2DE2; /* Accent purple */
@@ -116,8 +119,21 @@
   --ifm-footer-link-color: var(--ifm-color-light-gray);
 }
 
+
 /* Responsive adjustments for navbar and footer */
 @media (max-width: 996px) { /* Docusaurus default mobile breakpoint */
+  .navbar {
+    padding-right: 0; /* Reset on mobile */
+  }
+
+  .auth-navbar-overlay {
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+    margin-top: 0.5rem;
+    display: block;
+  }
+
   .navbar__toggle {
     color: var(--ifm-color-primary-light); /* Ensure toggle is purple on mobile */
   }
@@ -149,4 +165,82 @@
   .footer__title {
     margin-top: 1rem;
   }
+}
+
+/* RTL (Right-to-Left) styling for Urdu language */
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .navbar__items--right {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+html[dir="rtl"] .navbar__items--left {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+html[dir="rtl"] .menu__list-item {
+  text-align: right;
+}
+
+html[dir="rtl"] .pagination-nav__label {
+  text-align: right;
+}
+
+html[dir="rtl"] .theme-doc-sidebar-menu .menu__list-item > .menu__link {
+  padding-right: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+html[dir="rtl"] .theme-doc-sidebar-menu .menu__list-item > .menu__list-item .menu__link {
+  padding-right: 1.5rem;
+  padding-left: 2.5rem;
+}
+
+html[dir="rtl"] .alert {
+  border-right: 4px solid;
+  border-left: none;
+}
+
+html[dir="rtl"] .theme-admonition {
+  border-right: 4px solid;
+  border-left: none;
+}
+
+html[dir="rtl"] .pagination-nav__link--next .pagination-nav__sublabel {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .pagination-nav__link--prev .pagination-nav__sublabel {
+  flex-direction: row-reverse;
+}
+
+/* RTL adjustments for sidebar */
+html[dir="rtl"] .sidebar {
+  right: 0;
+  left: auto;
+}
+
+html[dir="rtl"] .sidebar > *:not(:first-child) {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+/* RTL for footer links */
+html[dir="rtl"] .footer__links {
+  text-align: right;
+}
+
+html[dir="rtl"] .footer__item {
+  text-align: right;
+}
+
+/* RTL for search bar if present */
+html[dir="rtl"] .navbar__search {
+  margin-left: 0;
+  margin-right: 0.5rem;
 }

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 0
-id: Introduction-Embodied-AI-&-Robotics
+id: introduction-embodied-ai-robotics
 title: Physical AI & Humanoid Robotics
 sidebar_label: Introduction – Embodied AI & Robotics
 ---

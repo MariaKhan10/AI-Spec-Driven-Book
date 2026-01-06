@@ -1,4 +1,5 @@
 ---
+id: introducing-physical-ai-humanoid-robotics
 sidebar_position: 1
 title: "Introducing Physical AI & Humanoid Robotics"
 ---

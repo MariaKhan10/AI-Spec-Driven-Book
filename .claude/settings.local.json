@@ -4,7 +4,8 @@
       "Bash(claude mcp add:*)",
       "mcp__context7__get-library-docs",
       "WebSearch",
-      "mcp__ide__getDiagnostics"
+      "mcp__ide__getDiagnostics",
+      "Bash(findstr :3001)"
     ],
     "deny": [],
     "ask": []

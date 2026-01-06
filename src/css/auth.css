@@ -1,0 +1,257 @@
+/* Authentication Components Styles */
+
+.auth-navbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-user-greeting {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.navbar-auth-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navbar-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--ifm-global-radius);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.navbar-button--primary {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.navbar-button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  color: white;
+}
+
+.navbar-button--secondary {
+  background-color: transparent;
+  color: var(--ifm-color-emphasis-900);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+.navbar-button--secondary:hover {
+  background-color: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-400);
+}
+
+.navbar-button--outline {
+  background-color: transparent;
+  color: var(--ifm-color-danger);
+  border: 1px solid var(--ifm-color-danger);
+}
+
+.navbar-button--outline:hover {
+  background-color: var(--ifm-color-danger);
+  color: white;
+}
+
+.registration-form,
+.login-form {
+  background: var(--ifm-background-surface-color);
+  border-radius: var(--ifm-global-radius);
+  padding: 2rem;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: var(--ifm-font-weight-semibold);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-900);
+  background-color: var(--ifm-background-color);
+  background-clip: padding-box;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: var(--ifm-color-emphasis-900);
+  background-color: var(--ifm-background-color);
+  border-color: var(--ifm-color-primary);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(var(--ifm-color-primary-rgb), 0.25);
+}
+
+.form-control.is-invalid {
+  border-color: var(--ifm-color-danger);
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: var(--ifm-color-danger);
+}
+
+.button--loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.button--loading::after {
+  content: '';
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  margin: auto;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s linear infinite;
+}
+
+@keyframes button-loading-spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.profile-management {
+  background: var(--ifm-background-surface-color);
+  border-radius: var(--ifm-global-radius);
+  padding: 2rem;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.personalize-button-container {
+  margin: 1.5rem 0;
+  padding: 1.2rem;
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: var(--ifm-global-radius);
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+/* Adjust button sizes for personalization controls */
+.personalize-button-container .button {
+  font-size: 0.9rem !important;
+  padding: 0.2rem 1rem !important;
+  margin: 0.2rem 0.2rem 0 0 !important;
+}
+
+.personalize-button-container .button--loading {
+  min-height: 2.5rem;
+}
+
+.personalize-button-container .button-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.personalize-button-container .button-group .button {
+  margin: 0 !important;
+}
+
+/* Style for save status messages */
+.save-status {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: var(--ifm-global-radius);
+  font-size: 0.85rem;
+}
+
+.save-status.success {
+  background-color: rgba(40, 167, 69, 0.1);
+  border: 1px solid rgba(40, 167, 69, 0.3);
+  color: #28a745;
+}
+
+.save-status.error {
+  background-color: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  color: #dc3545;
+}
+
+/* Override modal button styles to make them smaller */
+.personalize-button-container .fixed button {
+  padding: 0.375rem 0.75rem !important; /* Reduced from Tailwind's default px-4 py-2 */
+  font-size: 0.875rem !important; /* text-sm instead of base */
+  margin: 0 0.25rem !important; /* Reduce margin */
+}
+
+/* More specific targeting for modal buttons */
+.personalize-button-container .fixed .px-4 {
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+}
+
+.personalize-button-container .fixed .py-2 {
+  padding-top: 0.375rem !important;
+  padding-bottom: 0.375rem !important;
+}
+
+/* Style for the personalization buttons in doc layout - MORE SPECIFIC TO AVOID AFFECTING NAVBAR */
+div[style*="marginBottom: '1rem'"] .button.button--primary,
+div[style*="marginBottom: '1rem'"] .button.button--secondary {
+  padding: 0.375rem 0.75rem !important; /* Reduced from 0.5rem 1rem */
+  font-size: 0.875rem !important;
+  min-height: auto !important;
+  height: auto !important;
+  margin: 0 0.25rem 0 0 !important;
+  line-height: 1.2 !important;
+  border-radius: 0.25rem !important;
+}
+
+/* Target the specific container for personalization buttons to avoid navbar conflicts */
+div[style*="display: 'flex'"][style*="gap: '0.5rem'"][style*="flexWrap: 'wrap'"] .button.button--primary,
+div[style*="display: 'flex'"][style*="gap: '0.5rem'"][style*="flexWrap: 'wrap'"] .button.button--secondary {
+  padding: 0.375rem 0.75rem !important;
+  font-size: 0.875rem !important;
+  min-height: auto !important;
+  height: auto !important;
+  line-height: 1.2 !important;
+}
+
+.personalize-prompt {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: var(--ifm-global-radius);
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .registration-form,
+  .login-form,
+  .profile-management {
+    padding: 1.5rem;
+  }
+}

@@ -1,3 +1,8 @@
+---
+id: introducing-physical-ai-humanoid-robotics-chapter1
+title: "Chapter 1: Foundations of Physical AI & ROS 2 Nervous System"
+---
+
 # Chapter 1: Foundations of Physical AI & ROS 2 Nervous System
 
 ## 1.1 Introduction to Physical AI

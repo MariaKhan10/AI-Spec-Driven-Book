@@ -1,0 +1,18 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Introducing Physical AI & Humanoid Robotics": {
+    "message": "Introducing Physical AI & Humanoid Robotics",
+    "description": "The label for category 'Introducing Physical AI & Humanoid Robotics' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Advanced AI for Robotics": {
+    "message": "Advanced AI for Robotics",
+    "description": "The label for category 'Advanced AI for Robotics' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Conversational Robotics": {
+    "message": "Conversational Robotics",
+    "description": "The label for category 'Conversational Robotics' in sidebar 'tutorialSidebar'"
+  }
+}
