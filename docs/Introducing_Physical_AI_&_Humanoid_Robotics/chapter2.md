@@ -1,3 +1,8 @@
+---
+id: introducing-physical-ai-humanoid-robotics-chapter2
+title: "Chapter 2: Simulation & Digital Twin for Humanoids"
+---
+
 # Chapter 2: Simulation & Digital Twin for Humanoids
 
 ## 2.1 Introduction to Robot Simulation
@@ -92,10 +97,3 @@ This chapter has covered the fundamental concepts of robot simulation, digital t
 *   **Exercise 2.2**: Describe how a digital twin can accelerate the development cycle of a new humanoid robot.
 *   **Exercise 2.3 (VLA-relevant)**: Imagine a humanoid robot needs to pick up a cup. Outline the high-level steps involved, from visual perception to generating a motion plan for its arm. How might errors in kinematics or motion planning affect this task?
 
-<!-- ## Diagram Placeholders
-
-*   ![Diagram: Forward Kinematics Example](assets/ch2_diagram1_forward_kinematics.png)
-*   ![Diagram: Inverse Kinematics Concepts](assets/ch2_diagram2_inverse_kinematics.png)
-*   ![Diagram: Configuration Space with Obstacles](assets/ch2_diagram3_c_space.png)
-*   ![Diagram: RRT Path Planning](assets/ch2_diagram4_rrt_planning.png)
-*   ![Diagram: Digital Twin Concept](assets/ch2_diagram5_digital_twin.png) -->

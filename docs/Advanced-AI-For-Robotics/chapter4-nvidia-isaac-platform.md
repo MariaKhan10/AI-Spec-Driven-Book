@@ -1,3 +1,8 @@
+---
+id: advanced-ai-for-robotics-chapter4-nvidia-isaac-platform
+title: "Chapter 4: The AI-Robot Brain: NVIDIA Isaac Platform"
+---
+
 # Chapter 4: The AI-Robot Brain: NVIDIA Isaac Platform
 
 ## 4.1 Introduction to NVIDIA Isaac Platform

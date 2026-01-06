@@ -1,3 +1,8 @@
+---
+id: advanced-ai-for-robotics-chapter6-humanoid-kinematics-control
+title: "Chapter 6: Humanoid Robot Development: Kinematics and Control"
+---
+
 # Chapter 6: Humanoid Robot Development: Kinematics and Control
 
 ## 6.1 Introduction to Humanoid Robot Challenges

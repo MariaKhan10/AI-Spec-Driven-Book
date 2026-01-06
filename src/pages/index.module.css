@@ -367,3 +367,38 @@
 /* small utility tweaks        */
 /* --------------------------- */
 a { color: inherit; }
+
+
+.createAccountWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+    text-align: center;
+} 
+
+/* sirf is page ke liye */
+.createAccountWrapper .ctaButton {
+  cursor: pointer;
+  padding: 14px 36px;   /* 👈 size increase */
+  font-size: 17px;      /* 👈 text bigger */
+  min-width: 220px;  
+    display: flex;
+  justify-content: center; /* horizontally center text */
+  align-items: center;  
+
+}
+
+.loginTextWrapper {
+  display: flex;
+  flex-direction: column; /* vertical stack */
+  align-items: center;    /* center horizontally */
+  text-align: center;     /* text inside <p> center */
+  gap: 8px;               /* thoda space <p> ke beech */
+  margin-top: 16px;
+}
+
+
+.loginTextWrapper p {
+  text-align: center;
+  justify-content: center;
+}

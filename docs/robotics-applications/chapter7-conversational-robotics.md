@@ -1,3 +1,8 @@
+---
+id: robotics-applications-chapter7-conversational-robotics
+title: "Chapter 7: Conversational Robotics and Multimodal Interaction"
+---
+
 # Chapter 7: Conversational Robotics and Multimodal Interaction
 
 ## 7.1 Introduction to Conversational Robotics

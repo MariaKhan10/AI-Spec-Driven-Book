@@ -1,0 +1,18 @@
+{
+  "title": {
+    "message": "فزیکل ای آئی اور ہیومنوائڈ روبوٹکس",
+    "description": "The title in the navbar"
+  },
+  "item.label.Book": {
+    "message": "کتاب",
+    "description": "Navbar item with label Book"
+  },
+  "item.label.GitHub": {
+    "message": "گیت ہب",
+    "description": "Navbar item with label GitHub"
+  },
+  "logo.alt": {
+    "message": "Logo",
+    "description": "The alt text of navbar logo"
+  }
+}

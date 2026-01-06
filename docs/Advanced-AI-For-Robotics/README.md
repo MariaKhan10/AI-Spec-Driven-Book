@@ -1,3 +1,8 @@
+---
+id: advanced-ai-for-robotics
+title: "Advanced AI for Robotics"
+---
+
 # Advanced AI for Robotics
 
 This section advances your understanding from foundational robotics to the cutting-edge integration of Artificial Intelligence in robotic systems. Here, you will dive deep into specialized AI platforms and methodologies that empower robots with sophisticated perception, cognitive planning, and human-like control.

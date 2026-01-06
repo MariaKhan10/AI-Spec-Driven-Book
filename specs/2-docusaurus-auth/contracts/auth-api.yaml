@@ -1,0 +1,359 @@
+openapi: 3.0.0
+info:
+  title: Docusaurus Authentication API
+  description: API for user authentication and profile management in the Docusaurus website
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@example.com
+
+servers:
+  - url: https://api.example.com
+    description: Production server
+  - url: https://staging-api.example.com
+    description: Staging server
+
+paths:
+  /api/auth/register:
+    post:
+      summary: Register a new user
+      description: Creates a new user account with email, password, and profile information
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegistration'
+      responses:
+        '201':
+          description: User successfully registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '400':
+          description: Invalid input or validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Email already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/auth/login:
+    post:
+      summary: Authenticate user
+      description: Authenticates user with email and password, returns session token
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+      responses:
+        '200':
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/auth/logout:
+    post:
+      summary: Logout user
+      description: Invalidates current user session
+      tags:
+        - Authentication
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Successfully logged out
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '401':
+          description: Unauthorized or invalid token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/auth/me:
+    get:
+      summary: Get current user profile
+      description: Retrieves the profile of the currently authenticated user
+      tags:
+        - User Profile
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: User profile retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '401':
+          description: Unauthorized or invalid token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/auth/profile:
+    put:
+      summary: Update user profile
+      description: Updates the authenticated user's profile information
+      tags:
+        - User Profile
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfileUpdate'
+      responses:
+        '200':
+          description: Profile updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '400':
+          description: Invalid input or validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized or invalid token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/personalize/chapter/{chapterId}:
+    post:
+      summary: Get personalized chapter content
+      description: Returns personalized content for a chapter based on user profile
+      tags:
+        - Personalization
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: chapterId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID of the chapter to personalize
+      responses:
+        '200':
+          description: Personalized content returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalizedChapterResponse'
+        '401':
+          description: Unauthorized or invalid token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Chapter not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    UserRegistration:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+          description: User's email address
+          example: user@example.com
+        password:
+          type: string
+          minLength: 8
+          description: User's password
+          example: securePassword123
+        software_background:
+          type: string
+          enum: [beginner, intermediate, advanced]
+          description: User's software development experience level
+          example: intermediate
+        hardware_background:
+          type: string
+          enum: [low-end, mid, high]
+          description: User's hardware familiarity level
+          example: mid
+
+    UserLogin:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+          description: User's email address
+          example: user@example.com
+        password:
+          type: string
+          description: User's password
+          example: securePassword123
+
+    ProfileUpdate:
+      type: object
+      properties:
+        software_background:
+          type: string
+          enum: [beginner, intermediate, advanced]
+          description: User's software development experience level
+          example: advanced
+        hardware_background:
+          type: string
+          enum: [low-end, mid, high]
+          description: User's hardware familiarity level
+          example: high
+
+    UserResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique user identifier
+          example: "user_123456789"
+        email:
+          type: string
+          format: email
+          description: User's email address
+          example: user@example.com
+        software_background:
+          type: string
+          enum: [beginner, intermediate, advanced]
+          description: User's software development experience level
+          example: intermediate
+        hardware_background:
+          type: string
+          enum: [low-end, mid, high]
+          description: User's hardware familiarity level
+          example: mid
+        email_verified:
+          type: boolean
+          description: Whether the user has verified their email
+          example: true
+        created_at:
+          type: string
+          format: date-time
+          description: When the user account was created
+          example: "2025-12-22T10:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: When the user account was last updated
+          example: "2025-12-22T10:00:00Z"
+
+    LoginResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/UserResponse'
+        token:
+          type: string
+          description: JWT token for authentication
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        expires_at:
+          type: string
+          format: date-time
+          description: When the token expires
+          example: "2025-12-23T10:00:00Z"
+
+    PersonalizedChapterResponse:
+      type: object
+      properties:
+        chapter_id:
+          type: string
+          description: ID of the chapter
+          example: "introduction-to-ros"
+        title:
+          type: string
+          description: Title of the chapter
+          example: "Introduction to ROS"
+        content:
+          type: string
+          description: Personalized chapter content
+          example: "Personalized content based on user profile..."
+        personalization_applied:
+          type: boolean
+          description: Whether personalization was applied
+          example: true
+        user_profile_used:
+          $ref: '#/components/schemas/UserResponse'
+
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Whether the operation was successful
+          example: true
+        message:
+          type: string
+          description: Optional success message
+          example: "Operation completed successfully"
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+          example: "Invalid credentials"
+        code:
+          type: string
+          description: Error code
+          example: "INVALID_CREDENTIALS"
+        details:
+          type: object
+          description: Additional error details
+          example: {}

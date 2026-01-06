@@ -1,0 +1,126 @@
+# API Contract: Content Personalization Service
+
+## Base URL
+`/api/personalize`
+
+## Authentication
+All endpoints require a valid user session via Better Auth. Anonymous users receive original content without personalization.
+
+## Endpoints
+
+### GET /api/personalize
+Get personalized content for a specific chapter and user.
+
+#### Query Parameters
+- `chapter` (required): The filename of the chapter to personalize
+- `userId` (optional): The ID of the user requesting personalization (if not provided, returns original content)
+
+#### Responses
+- `200 OK`: Successfully personalized content
+  ```json
+  {
+    "filename": "chapter-name.md",
+    "content": "Personalized markdown content...",
+    "complexityLevel": "beginner|intermediate|advanced",
+    "transformationApplied": true
+  }
+  ```
+- `401 Unauthorized`: User not authenticated
+- `404 Not Found`: Chapter file not found
+- `500 Internal Server Error`: Error in personalization process
+
+### POST /api/personalize
+Personalize provided content based on user profile.
+
+#### Request Body
+```json
+{
+  "content": "Original markdown content to personalize",
+  "userId": "user-id",
+  "options": {
+    "preserveStructure": true,
+    "complexityOverride": "beginner|intermediate|advanced"
+  }
+}
+```
+
+#### Responses
+- `200 OK`: Successfully personalized content
+  ```json
+  {
+    "personalizedContent": "Transformed markdown content...",
+    "complexityLevel": "beginner|intermediate|advanced",
+    "processingTime": 1250
+  }
+  ```
+- `400 Bad Request`: Invalid request body
+- `401 Unauthorized`: User not authenticated
+- `500 Internal Server Error`: Error in personalization process
+
+### GET /api/personalization-settings
+Get current personalization settings for a user.
+
+#### Query Parameters
+- `userId` (required): The ID of the user whose settings to retrieve
+
+#### Responses
+- `200 OK`: User settings retrieved successfully
+  ```json
+  {
+    "userId": "user-id",
+    "preferredName": "User's preferred name",
+    "contentComplexity": "balanced",
+    "learningStyle": "practical",
+    "technicalDepthPreference": "moderate",
+    "updatedAt": "2023-12-26T10:00:00Z"
+  }
+  ```
+- `401 Unauthorized`: User not authenticated
+- `404 Not Found`: User settings not found
+- `500 Internal Server Error`: Error retrieving settings
+
+### PUT /api/personalization-settings
+Update personalization settings for a user.
+
+#### Request Body
+```json
+{
+  "userId": "user-id",
+  "preferredName": "User's preferred name",
+  "contentComplexity": "balanced",
+  "learningStyle": "practical",
+  "technicalDepthPreference": "moderate"
+}
+```
+
+#### Responses
+- `200 OK`: Settings updated successfully
+  ```json
+  {
+    "success": true,
+    "updatedAt": "2023-12-26T10:00:00Z"
+  }
+  ```
+- `400 Bad Request`: Invalid request body
+- `401 Unauthorized`: User not authenticated
+- `500 Internal Server Error`: Error updating settings
+
+## Error Format
+All error responses follow this format:
+```json
+{
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Human-readable error message",
+    "details": "Additional error details (optional)"
+  }
+}
+```
+
+## Common Error Codes
+- `AUTHENTICATION_REQUIRED`: User must be authenticated
+- `USER_NOT_FOUND`: Specified user does not exist
+- `CONTENT_NOT_FOUND`: Requested content file does not exist
+- `PERSONALIZATION_FAILED`: Error occurred during content personalization
+- `INVALID_USER_PROFILE`: User profile contains invalid data
+- `REQUEST_TIMEOUT`: Request took too long to process

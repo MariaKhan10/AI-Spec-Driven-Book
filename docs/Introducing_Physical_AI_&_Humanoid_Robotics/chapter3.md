@@ -1,3 +1,8 @@
+---
+id: introducing-physical-ai-humanoid-robotics-chapter3
+title: "Chapter 3: Robot Dynamics and Control"
+---
+
 # Chapter 3: Robot Dynamics and Control
 
 ## 3.1 Introduction to Robot Dynamics
@@ -85,10 +90,3 @@ This chapter has explored robot dynamics and various control strategies, emphasi
 *   **Exercise 3.2**: Explain the concept of operational space control and provide an example of a task where it would be more beneficial than joint space control.
 *   **Exercise 3.3 (Capstone/VLA-relevant)**: Given a humanoid robot tasked with walking across uneven terrain, describe how understanding robot dynamics and implementing advanced control strategies (e.g., balance control) would be critical. How does this relate to the robot's ability to interpret and act on higher-level VLA commands?
 
-<!-- ## Diagram Placeholders
-
-*   ![Diagram: Forces and Torques on a Robot Link](assets/ch3_diagram1_robot_dynamics.png)
-*   ![Diagram: PID Control Loop](assets/ch3_diagram2_pid_control.png)
-*   ![Diagram: Zero Moment Point (ZMP)](assets/ch3_diagram3_zmp_concept.png)
-*   ![Diagram: Whole-Body Control Architecture](assets/ch3_diagram4_whole_body_control.png)
-*   ![Diagram: VLA Integration with Dynamics & Control](assets/ch3_diagram5_vla_dynamics_control.png) -->

@@ -1,3 +1,8 @@
+---
+id: advanced-ai-for-robotics-chapter5-vla-llms-robotics
+title: "Chapter 5: Vision-Language-Action (VLA): Bridging LLMs and Robotics"
+---
+
 # Chapter 5: Vision-Language-Action (VLA): Bridging LLMs and Robotics
 
 ## 5.1 The Convergence of LLMs and Robotics

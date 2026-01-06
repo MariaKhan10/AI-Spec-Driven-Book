@@ -26,7 +26,7 @@ function HomepageHeader() {
         <div className={styles.topStrip}>
           <span className={styles.badge}>AI-Native Book Series • 2025</span>
           <nav className={styles.quickLinks} aria-label="Quick links">
-            <Link to="/AI-Spec-Driven-Book/docs/Introduction-Embodied-AI-&-Robotics" className={styles.linkSmall}>Start</Link>
+            <Link to="/docs/introduction-embodied-ai-robotics" className={styles.linkSmall}>Start</Link>
             <Link to="/overview" className={styles.linkSmall}>Syllabus</Link>
           </nav>
         </div>
@@ -75,7 +75,7 @@ function HomepageHeader() {
             <div className={styles.heroButtons}>
               <Link
                 className={styles.ctaButton}
-                to="/AI-Spec-Driven-Book/docs/Introduction-Embodied-AI-&-Robotics"
+                to="/docs/introduction-embodied-ai-robotics"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -10,12 +10,13 @@ const config: Config = {
   future: {
     v4: true,
   },
-
+  
+  // url: 'http://localhost:3000',
   url: 'https://MariaKhan10.github.io',
   baseUrl: '/AI-Spec-Driven-Book/',
   organizationName: 'MariaKhan10',
   projectName: 'AI-Spec-Driven-Book',
-  deploymentBranch: 'gh-pages', 
+  deploymentBranch: 'gh-pages',
   onBrokenLinks: 'throw', // keep as is for site links
 
   markdown: {
@@ -27,17 +28,29 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'ur'],
+    localeConfigs: {
+      en: {
+        label: 'EN',
+        direction: 'ltr',
+      },
+      ur: {
+        label: 'اردو',
+        direction: 'rtl',
+      },
+    },
   },
 
   presets: [
     [
       'classic',
       {
-        docs: {
-          sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/MariaKhan10/AI-Spec-Driven-Book/edit/main/',
-        },
+            docs: {
+      sidebarPath: './sidebars.ts',
+      routeBasePath: 'docs', // ⭐ THIS IS THE FIX
+      editUrl: 'https://github.com/MariaKhan10/AI-Spec-Driven-Book/edit/main/',
+    },
+
         blog: false, // ✅ blog removed
         theme: {
           customCss: './src/css/custom.css',
@@ -65,7 +78,11 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Book',
-          to: '/docs/Introducing_Physical_AI_&_Humanoid_Robotics', // ✅ updated path
+          to: 'docs/introduction-embodied-ai-robotics',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
         },
         {
           href: 'https://github.com/MariaKhan10/AI-Spec-Driven-Book',
@@ -76,34 +93,35 @@ const config: Config = {
     },
 
     footer: {
-      style: 'dark',
-      links: [
+  style: 'dark', // same dark theme
+  links: [
+    {
+      title: 'Docs',
+      items: [
         {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/Introducing_Physical_AI_&_Humanoid_Robotics', // ✅ updated path
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            { label: 'Stack Overflow', href: 'https://stackoverflow.com/questions/tagged/docusaurus' },
-            { label: 'Discord', href: 'https://discordapp.com/invite/docusaurus' },
-            { label: 'X', href: 'https://x.com/docusaurus' },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            { label: 'GitHub', href: 'https://github.com/MariaKhan10/AI-Spec-Driven-Book' },
-          ],
+          label: 'Book',
+          to: 'docs/introduction-embodied-ai-robotics',
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} AI Spec Driven Book. Built with Docusaurus.`,
     },
+    {
+      title: 'Community',
+      items: [
+        { label: 'Stack Overflow', href: 'https://stackoverflow.com/questions/tagged/docusaurus' },
+        { label: 'Discord', href: 'https://discordapp.com/invite/docusaurus' },
+        { label: 'X', href: 'https://x.com/docusaurus' },
+      ],
+    },
+    {
+      title: 'More',
+      items: [
+        { label: 'GitHub', href: 'https://github.com/MariaKhan10/AI-Spec-Driven-Book' },
+      ],
+    },
+  ],
+  copyright: `Copyright © ${new Date().getFullYear()} AI Spec Driven Book. All rights reserved.`,
+},
+
 
     prism: {
       theme: prismThemes.github,

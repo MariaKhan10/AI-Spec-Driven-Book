@@ -1,3 +1,8 @@
+---
+id: robotics-applications
+title: "Conversational Robotics"
+---
+
 # Conversational Robotics
 
 This section delves into sophisticated applications and critical infrastructure aspects of Physical AI and Humanoid Robotics. Building upon your foundational and advanced AI knowledge, you will explore how intelligent robots engage in complex conversational interactions, undertake ambitious capstone projects, and understand the real-world hardware and lab setups required for their development and deployment.

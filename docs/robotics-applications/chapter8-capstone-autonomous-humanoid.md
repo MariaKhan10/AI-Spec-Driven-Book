@@ -1,3 +1,8 @@
+---
+id: robotics-applications-chapter8-capstone-autonomous-humanoid
+title: "Chapter 8: Capstone Project: The Autonomous Humanoid"
+---
+
 # Chapter 8: Capstone Project: The Autonomous Humanoid
 
 ## 8.1 Introduction to the Capstone Project
