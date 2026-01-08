@@ -26,7 +26,7 @@ export class ClientContentPersonalizer {
 
     this.apiBaseUrl =
       (typeof window !== 'undefined' && (window as any).API_BASE_URL) ||
-      (isDevEnvironment ? 'http://localhost:3001/api' : '/api');
+      (isDevEnvironment ? 'http://localhost:3001/api' : 'https://ai-personalization-backend.vercel.app/api');
 
     // Allow override via constructor parameter
     if (apiBaseUrl) {
