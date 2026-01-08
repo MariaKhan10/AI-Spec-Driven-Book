@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { clientContentPersonalizer } from '../../services/ClientContentPersonalizer';
 
+
 interface ContentPersonalizerProps {
   content: string;
   userId?: string;
